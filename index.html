@@ -1,0 +1,24 @@
+<html ng-app="microApp">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+</head>
+
+<body ng-controller="microController as mc">
+	<div class="boxed">
+		<ul>
+			<li disabled>Items</li>
+			<li ng-repeat="entry in mc.list">Protien: {{entry.protien}} | Fat: {{entry.fat}} | Calories: {{entry.calories}}</li>
+		</ul>
+	</div>
+
+
+	<!-- AngularJS 1.5 -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+	<!-- AppJS file -->
+	<script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>

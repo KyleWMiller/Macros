@@ -1,0 +1,8 @@
+body {
+	background: lightBlue;
+}
+
+.boxed {
+	border: 1px solid black;
+	background-color: lightgreen;
+}
