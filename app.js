@@ -14,23 +14,37 @@
         name: "Banana",
         protien: 2,
         calories: 23,
-        fat: 17
-
+        fat: 17,
+        grams: 1
       },
       {
         name: "Coconut Oil",
         protien: 3,
         calories: 16,
-        fat: 11
+        fat: 11,
+        grams: 1
       }
     ]
 
     mc.addItem = function() {
-      mc.list.push(mc.item)
+      mc.itemList.push(mc.item)
       mc.item = {}
     }
+    mc.removeItem = function(name) {
+      mc.itemList.map(x => {
+        if(x.name === name) {
+          var index = mc.itemList.indexOf(x)
+          console.log(index)
+          mc.itemList = mc.itemList.splice(index, 1)
+          console.log("deleting")
+        }
+      })
+    }
 
-    mc.receipe = {}
+    mc.receipe = {
+      name: null,
+      ingredients: []
+    }
     mc.receipeList = [{
         name: "Muffin",
         ingredients: [
@@ -50,7 +64,14 @@
     ]
 
     mc.addReceipeItem = function(item) {
-      mc.receipe.ingredient.push(item)
+      mc.receipe.ingredients.push(item)
+      console.log(item)
+    }
+
+    mc.changeQuantity = function(ingredient, grams) {
+      ingredient.calories = ingredient.calories * grams
+      ingredient.fat = ingredient.fat * grams
+      ingredient.protien = ingredient.protien * grams
     }
 
     mc.addReceipe = function() {
