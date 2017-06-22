@@ -10,10 +10,51 @@
 	<div class="boxed">
 		<ul>
 			<li disabled>Items</li>
-			<li ng-repeat="entry in mc.list">Protien: {{entry.protien}} | Fat: {{entry.fat}} | Calories: {{entry.calories}}</li>
+			<li ng-repeat="item in mc.itemList">Name: {{item.name}} | Calories: {{item.calories}} | Fat: {{item.fat}} | Protien: {{item.protien}}</li>
 		</ul>
 	</div>
 
+	<div class="boxed">
+		<ul>
+			<li disabled>Recipies</li>
+			<li ng-repeat="entry in mc.receipeList">
+					<h3>Name: {{entry.name}}</h3>
+					<div class="boxed">
+						<ul>
+							<li ng-repeat="ingredient in entry.ingredients">Name: {{ingredient.name}} | Calories: {{ingredient.calories}} | Fat: {{ingredient.fat}} | Protien: {{ingredient.protien}}</li>
+						</ul>
+					</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="boxed">
+		<form>
+			<h4>New Item</h4>
+			<input type="text" ng-model="mc.item.name" placeholder="Item Name">
+			<input type="text" ng-model="mc.item.calories" placeholder="Calories">
+			<input type="text" ng-model="mc.item.fat" placeholder="Fat">
+			<input type="text" ng-model="mc.item.protien" placeholder="Protien">
+		</form>
+		<button type="button" name="button" ng-click="mc.addItem()">Add Item</button>
+	</div>
+
+	<div class="boxed">
+		<form>
+			<h4>New Receipe</h4>
+			<input type="text" ng-model="mc.item.name" placeholder="Item Name">
+			<h5>Ingredients</h5>
+			<ul>
+				<li></li>
+			</ul>
+			<select ng-model="mc.receipe.ingredient">
+				<option selected disabled>Ingredients</option>
+				<option ng-repeat="item in mc.itemList">{{item.name}}</option>
+			</select>
+			<button type="button" name="button" ng-click="mc.addReceipeItem(mc.receipe.ingredient)"></button>
+		</form>
+		<button type="button" name="button" ng-click="mc.addReceipe()">Add Receipe</button>
+	</div>
 
 	<!-- AngularJS 1.5 -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>

@@ -5,4 +5,5 @@ body {
 .boxed {
 	border: 1px solid black;
 	background-color: lightgreen;
+	padding: 7px;
 }
